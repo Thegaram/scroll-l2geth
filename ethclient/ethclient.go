@@ -328,6 +328,7 @@ func (ec *Client) SubscribeNewHead(ctx context.Context, ch chan<- *types.Header)
 // GetBlockResultByHash returns the blockResult.
 func (ec *Client) GetBlockResultByHash(ctx context.Context, blockHash common.Hash) (*types.BlockResult, error) {
 	var blockResult types.BlockResult
+	fmt.Printf("!!! Calling eth_getBlockResultByHash")
 	if err := ec.c.CallContext(ctx, &blockResult, "eth_getBlockResultByHash", blockHash); err != nil {
 		return nil, err
 	}
